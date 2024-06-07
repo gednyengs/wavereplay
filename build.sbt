@@ -1,6 +1,7 @@
 ThisBuild / scalaVersion        := "2.13.14"
 ThisBuild / version             := "1.0.0"
 ThisBuild / organization        := "com.sekekama"
+ThisBuid / name                 := "wavereplay"
 
 lazy val root = (project in file("."))
     .settings(
