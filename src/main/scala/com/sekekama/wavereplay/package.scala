@@ -6,19 +6,27 @@ import scala.language.implicitConversions
 package object wavereplay {
 
     // Object aliases
+    /** MTL 'always/globally' operator */
     val always = wavereplay.builder.always
+    /** MTL 'eventually/finally' operator */
     val eventually = wavereplay.builder.eventually
+    /** MTL 'next' operator */
     val next = wavereplay.builder.next
+    /** MTL 'until' operator */
     val till = wavereplay.builder.till
 
+    /** 'posedge' proposition builder */
     val posedge = wavereplay.model.posedge
+    /** 'negedge' proposition builder */
     val negedge = wavereplay.model.negedge
+    /** 'change' proposition builder */
     val change = wavereplay.model.change
 
     val NumExpr = wavereplay.model.NumExpr
     val DictWaveform = wavereplay.model.DictWaveform
     val WaveEntry = wavereplay.model.WaveEntry
     val Signal = wavereplay.model.Signal
+    val CursoredWaveform = wavereplay.model.CursoredWaveform
 
     // Type aliases
     type Proposition = wavereplay.model.Proposition
@@ -31,13 +39,19 @@ package object wavereplay {
     type WaveEntry = wavereplay.model.WaveEntry
 
 
-    // Convert Strings to Option[String] implicitly
+    /** Convert Strings into Option[String] implicitly
+     * @param s The string to convert to Option[String]
+     */
     implicit def strToOption(s: String): Option[String] = Some(s)
 
-    // Convert integer literals to Expr implicitly
+    /** Convert integer literals into Expr implicitly
+     * @param i The integer to convert to Expr
+     */
     implicit def intToExpr(i: Int): Expr = NumExpr(i.toLong)
 
-    // Convert from a tuple to WaveEntry implicitly
+    /** Convert a tuple into WaveEntry implicitly
+     * @param t The tuple to convert into WaveEntry
+     */
     implicit def tupleToWaveEntry(t: (Int, Int)): WaveEntry = WaveEntry(t._1.toLong, t._2.toLong)
 
     /**

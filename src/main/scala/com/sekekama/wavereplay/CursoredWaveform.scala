@@ -14,27 +14,27 @@ class CursoredWaveform(val wvfm: Waveform) extends Waveform {
      * Waveform Interface
      **************************************************************************/
     /**
-     * @see Waveform::GetStartTime
+     * @see [[Waveform.GetStartTime]]
      */
     override def GetStartTime(): Long = wvfm.GetStartTime()
 
     /**
-     * @see Waveform::GetEndTime
+     * @see [[Waveform.GetEndTime]]
      */
     override def GetEndTime(): Long = wvfm.GetEndTime()
 
     /**
-     * @see Waveform::GetTimeStep
+     * @see [[Waveform.GetTimeStep]]
      */
     override def GetTimeStep(): Long = wvfm.GetTimeStep()
 
     /**
-     * @see Waveform::GetValue
+     * @see [[Waveform.GetValue]]
      */
     override def GetValue(sig: Signal, tm: Long): Long = wvfm.GetValue(sig, tm)
 
     /**
-     * @see Waveform::HasPath
+     * @see [[Waveform.HasPath]]
      */
     override def HasPath(path: String): Boolean = wvfm.HasPath(path)
 
@@ -76,8 +76,8 @@ class CursoredWaveform(val wvfm: Waveform) extends Waveform {
       * @param sig The signal to get the value of
       * @param c The time cursor at which to retrieve signal value
       * @return Signal's value
-      * @throws RuntimeException
       */
+     @throws[RuntimeException]
      def GetValue(sig: Signal, c: String): Long = {
        val ctOpt = GetCursorTime(c)
        for (ct <- ctOpt) {
@@ -92,4 +92,15 @@ class CursoredWaveform(val wvfm: Waveform) extends Waveform {
      def ResetCursors(): Unit = {
          cursor_map.clear()
      }
+}
+
+/**
+ * Companion object for CursoredWaveform class
+ */
+object CursoredWaveform {
+    /**
+     * Create a cursored waveform
+     * @param wvfm The underlying waveform to enable cursors on
+     */
+    def apply(wvfm: Waveform): CursoredWaveform = new CursoredWaveform(wvfm)
 }

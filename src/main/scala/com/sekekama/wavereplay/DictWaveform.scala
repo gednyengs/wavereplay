@@ -22,29 +22,29 @@ case class DictWaveform(start: Long,
                         step: Long,
                         data: Map[String, List[WaveEntry]]) extends Waveform {
     /**
-     * @see Waveform::GetStartTime()
+     * @see [[Waveform.GetStartTime]]
      */
     override def GetStartTime(): Long = start
 
     /**
-     * @see Waveform::GetEndTime()
+     * @see [[Waveform.GetEndTime]]
      */
     override def GetEndTime(): Long = end
 
     /**
-     * @see Waveform::HasPath()
+     * @see [[Waveform.HasPath]]
      */
     override def HasPath(path: String): Boolean = {
         data contains path
     }
 
     /**
-     * @see Waveform::GetTimeStep()
+     * @see [[Waveform.GetTimeStep]]
      */
     override def GetTimeStep(): Long = step
 
     /**
-     * @see Waveform::GetValue()
+     * @see [[Waveform.GetValue]]
      */
     override def GetValue(sig: Signal, tm: Long): Long = {
         if ((tm < start) || (tm > end)) throw new RuntimeException("invalid waveform time (" + tm + ")")

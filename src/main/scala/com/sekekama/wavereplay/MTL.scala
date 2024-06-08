@@ -13,7 +13,7 @@ package model
  */
 case class GOp(prop: Proposition, start: Long = 0, end: Long = -1, cursor: Option[String] = None) extends Proposition {
     /**
-     * @see Proposition::Evaluate
+     * @see [[Proposition.Evaluate]]
      */
     override def Evaluate(time: Long, wvfm: CursoredWaveform): Boolean = {
 
@@ -48,7 +48,7 @@ case class GOp(prop: Proposition, start: Long = 0, end: Long = -1, cursor: Optio
  */
 case class FOp(prop: Proposition, start: Long = 0, end: Long = -1, cursor: Option[String] = None) extends Proposition {
     /**
-     * @see Proposition::Evaluate
+     * @see [[Proposition.Evaluate]]
      */
     override def Evaluate(time: Long, wvfm: CursoredWaveform): Boolean = {
         val w_end = wvfm.GetEndTime()
@@ -82,7 +82,7 @@ case class FOp(prop: Proposition, start: Long = 0, end: Long = -1, cursor: Optio
  */
 case class XOp(prop: Proposition, start: Long = 0, end: Long = -1, cursor: Option[String] = None) extends Proposition {
     /**
-     * @see Proposition::Evaluate
+     * @see [[Proposition.Evaluate]]
      */
     override def Evaluate(time: Long, wvfm: CursoredWaveform): Boolean = {
         val w_end = wvfm.GetEndTime()
@@ -117,7 +117,7 @@ case class XOp(prop: Proposition, start: Long = 0, end: Long = -1, cursor: Optio
  */
 case class UOp(first_prop: Proposition, second_prop: Proposition, start: Long, end: Long, cursor: Option[String] = None) extends Proposition {
     /**
-     * @see Proposition::Evaluate
+     * @see [[Proposition.Evaluate]]
      */
     override def Evaluate(time: Long, wvfm: CursoredWaveform): Boolean = {
         val w_end = wvfm.GetEndTime()

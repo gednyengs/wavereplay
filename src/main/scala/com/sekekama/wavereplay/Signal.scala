@@ -25,8 +25,8 @@ class Signal private(val path: String, val wvfm: Waveform) extends Expr {
     /**
      * Get signal value at a given time
      * @param tm The time at which to compute signal value
-     * @throws RuntimeException
      */
+    @throws[RuntimeException]
     def GetValue(tm: Long): Long = wvfm.GetValue(this, tm)
 
     /**
@@ -69,8 +69,8 @@ object Signal {
      * @param path The hierarchical path of the signal in the waveform namespace
      * @param wvfm The waveform containing the signal
      * @return The signal instance if path exists in the waveform
-     * @throws RuntimeException
      */
+    @throws[RuntimeException]
     def apply(path: String, wvfm: Waveform): Signal = {
         val sig = new Signal(path, wvfm)
         if (wvfm.HasPath(path)) return sig

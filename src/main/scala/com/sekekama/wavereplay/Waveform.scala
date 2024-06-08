@@ -35,8 +35,8 @@ abstract class Waveform {
      * @param sig The signal to retrieve the value of
      * @param tm The time at which to compute the signal's value
      * @return The value of the signal at the given time
-     * @throws RuntimeException
      */
+    @throws[RuntimeException]
     def GetValue(sig: Signal, tm: Long): Long
 
     /**
