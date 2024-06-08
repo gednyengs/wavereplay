@@ -48,6 +48,23 @@ class Signal private(val path: String, val wvfm: Waveform) extends Expr {
     }
 
     /**
+     * Get time and value of a signal at a time cursor
+     * @param cursor The time cursor
+     * @return (time, value) tuple
+     */
+    def CollectAt(cursor: String): Tuple2[Long, Long] = {
+        GetWaveform() match {
+            case cw: CursoredWaveform => {
+                val value = At(cursor)
+                val tm = cw.GetCursorTime(cursor)
+                (tm.get, value)
+            }
+            case wv: Waveform => throw new RuntimeException(s"Waveform attached to signal $path is not cursored")
+            case _ => throw new RuntimeException(s"Cannot get value of signal $path at time cursor \" $cursor \"")
+        }
+    }
+
+    /**
      * @see Expr::GetValue
      */
     override def GetValue(tm: Long, wvfm: Waveform): Long = {

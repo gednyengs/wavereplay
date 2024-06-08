@@ -63,7 +63,7 @@ object WaveformData {
     // Waveform
     //
     // Note: we use the CursoredWaveform wrapper to enable using time cursors
-    val wvfm = CursoredWaveform(DictWaveform(0, 210, 10, wvfm_data))
+    val wvfm = CursoredWaveform(DictWaveform(0, 210, 5, wvfm_data))
 
     // Create signal references so we can use them in expressions
     val clk         = wvfm("CLK")
