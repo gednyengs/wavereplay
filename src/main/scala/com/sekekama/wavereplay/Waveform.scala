@@ -16,17 +16,17 @@ abstract class Waveform {
      **************************************************************************/
 
     /**
-     * Get the first time stamp in the waveform
+     * Get the first start time in the waveform
      */
     def GetStartTime(): Long
 
     /**
-     * Get the last time stamp in the waveform
+     * Get the end time in the waveform
      */
     def GetEndTime(): Long
 
     /**
-     * Get the time step unit value
+     * Get the time step value
      */
     def GetTimeStep(): Long
 
@@ -35,6 +35,7 @@ abstract class Waveform {
      * @param sig The signal to retrieve the value of
      * @param tm The time at which to compute the signal's value
      * @return The value of the signal at the given time
+     * @note Throws a runtime exception if the provided time "tm" is out of range
      */
     @throws[RuntimeException]
     def GetValue(sig: Signal, tm: Long): Long

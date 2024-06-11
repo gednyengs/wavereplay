@@ -14,7 +14,6 @@ _WaveReplay_ is a DSL/library in Scala for debugging waveforms
     - [Tutorial 1 Capturing Waveform](#tutorial-1-capturing-waveform)
     - [Tutorial 2 Simple Propositions and Time Cursors](#tutorial-2-simple-propositions-and-time-cursors)
     - [Tutorial 3 MTL Operators](#tutorial-3-mtl-operators)
-    - [Tutorial 4 Nested MTL Operators](#tutorial-4-nested-mtl-operators)
 
 ## Usage
 
@@ -345,5 +344,3 @@ object Main extends App {
     }
 }
 ```
-
-### Tutorial 4 Nested MTL Operators
